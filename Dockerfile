@@ -14,6 +14,9 @@ RUN curl -qsSLkO \
 
 ENV PATH=/root/miniconda2/bin:$PATH
 
-RUN conda install -y theano h5py \
+RUN conda install -y \
+    h5py \
+    pandas \
+    theano \
   && pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git \
   && pip install keras
