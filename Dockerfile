@@ -11,7 +11,7 @@ RUN curl -qsSLkO \
   && bash Miniconda-latest-Linux-`uname -p`.sh -b \
   && rm Miniconda-latest-Linux-`uname -p`.sh
 
-ENV PATH=/root/miniconda/bin:$PATH
+ENV PATH=/root/miniconda2/bin:$PATH
 
 RUN conda install -y theano h5py \
   && pip install keras
