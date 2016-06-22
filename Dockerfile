@@ -18,5 +18,8 @@ RUN conda install -y \
     h5py \
     pandas \
     theano \
-  && pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git \
-  && pip install keras
+  && conda clean --yes --tarballs --packages --source-cache \
+  && pip install --upgrade -I setuptools \
+  && pip install --upgrade \
+    keras \
+    https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0rc0-cp27-none-linux_x86_64.whl
