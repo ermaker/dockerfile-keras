@@ -8,18 +8,15 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl -qsSLkO \
-    https://repo.continuum.io/miniconda/Miniconda-latest-Linux-`uname -p`.sh \
-  && bash Miniconda-latest-Linux-`uname -p`.sh -b \
-  && rm Miniconda-latest-Linux-`uname -p`.sh
+    https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-`uname -p`.sh \
+  && bash Miniconda3-latest-Linux-`uname -p`.sh -b \
+  && rm Miniconda3-latest-Linux-`uname -p`.sh
 
-ENV PATH=/root/miniconda2/bin:$PATH
+ENV PATH=/root/miniconda3/bin:$PATH
 
 RUN conda install -y \
     h5py \
     pandas \
-    theano \
-  && conda clean --yes --tarballs --packages --source-cache \
-  && pip install --upgrade -I setuptools \
-  && pip install --upgrade \
     keras \
-    https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0rc0-cp27-none-linux_x86_64.whl
+    tensorflow-gpu \
+  && conda clean --yes --tarballs --packages --source-cache
