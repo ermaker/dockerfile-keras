@@ -18,5 +18,5 @@ RUN conda install -y \
     h5py \
     pandas \
     keras \
-    tensorflow \
+    tensorflow-gpu \
   && conda clean --yes --tarballs --packages --source-cache
