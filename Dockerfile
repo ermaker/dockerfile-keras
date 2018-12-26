@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-cudnn7-devel
+FROM ubuntu
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
